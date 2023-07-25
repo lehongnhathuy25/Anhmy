@@ -1,0 +1,96 @@
+.breadcrumb {
+    border-radius: 0.4rem;
+    padding: 1rem 0;
+
+    &-list {
+        @include flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        max-width: 100%;
+        min-width: 30rem;
+
+        &::-webkit-scrollbar {
+            height: 0;
+        }
+    }
+
+    &-item {
+        position: relative;
+        @include flex;
+        align-items: center;
+
+        &:first-child {
+            &::before {
+                display: none;
+            }
+        }
+
+        &:last-child {
+            .breadcrumb-link {
+                color: $color-white;
+                pointer-events: none;
+                @include lc(1);
+
+                @include max($res-mobile) {
+                    max-width: 30rem;
+                }
+
+                white-space: unset;
+                font-weight: 700;
+            }
+
+            &::before {
+                color: $color-second;
+                width: 6.4rem;
+
+                @include max($res-mobile) {
+                    width: 3rem;
+                }
+                @include max(600px) {
+                    width: unset;
+                    height: unset;
+                }
+            }
+        }
+
+        &::before {
+
+            content: '';
+            margin-right: 1rem;
+            margin-left: 1rem;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            font-weight: 900;
+            width: 4rem;
+            height: 0.1rem;
+            flex-shrink: 0;
+            background-color: $color-white;
+            display: block;
+            color: $color-second;
+
+            @include max($res-mobile) {
+                width: 1rem;
+            }
+
+            @include max(600px) {
+                content: '\f324';
+                font-family: "Font Awesome 6 Pro";
+                width: unset;
+                height: unset;
+                background-color: transparent;
+            }
+        }
+
+        .breadcrumb-link {
+            color: $color-white;
+            @include fz-14;
+            transition: 0.4s;
+            white-space: nowrap;
+            
+            @include hover {
+                color: $color-third;
+            }
+        }
+    }
+}

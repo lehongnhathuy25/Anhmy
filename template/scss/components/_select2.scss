@@ -1,0 +1,191 @@
+.select2-container {
+    height: 4.4rem;
+    background-color: transparent;
+}
+
+.select2.select2-container {
+    width: 100% !important;
+}
+
+.selection {
+    width: 100%;
+}
+
+.select2-container--default .select2-selection--single {
+    color: $color-white;
+    height: 4.4rem;
+    @include flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.select2.select2-container .select2-selection--multiple {
+    height: 4.4rem;
+    min-height: 4.4rem;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    background-color: transparent;
+    color: $color-white;
+    @include fz-14;
+    // font-weight: 400;
+    display: inline !important;
+    @include lc(1);
+    width: 100%;
+}
+
+.select2.select2-container .select2-selection--multiple .select2-selection__rendered {
+    display: block;
+    padding: 0 4px;
+}
+
+
+
+.select2-container .select2-dropdown {
+    background: transparent;
+    // border: 0.1rem solid $color-pri;
+    border: none;
+    border-radius: 0rem;
+    overflow: hidden;
+    top: 0.6rem;
+}
+
+.select2-container .select2-dropdown .select2-search {
+    padding: 0;
+}
+
+.select2-container .select2-dropdown .select2-search input {
+    outline: none !important;
+    border: none;
+    border-bottom: transparent;
+    padding: 2px 3px !important;
+    color: $color-white;
+}
+
+
+
+.select2-container .select2-dropdown .select2-results ul .select2-results__option--highlighted[aria-selected] {
+    background-color: $color-pri;
+    font-size: 1.6rem;
+    color: $color-white;
+    // font-weight: 400d;
+
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    @include fz-14;
+    font-weight: 400;
+    color: $color-text;
+    opacity: 0.5;
+}
+
+.select2-container--default .select2-results__option--selected {
+    background-color: $color-pri;
+    color: $color-white;
+    font-size: 1.6rem;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: $color-white;
+    border: 0.1rem solid rgba(255, 255, 255, 0.25);
+    border-radius: 0.8rem;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding: 0rem 1.4rem;
+    color: $color-text;
+    @include fz-14;
+    font-weight: 400;
+    color: $color-pri;
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
+    // border-top-left-radius: 0.8rem;
+    // border-top-right-radius: 0.8rem;
+    border-radius: 0.8rem;
+    border-color: $color-pri;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 37% !important;
+    right: 1.3rem !important;
+    height: 1.4rem !important;
+    width: 1.4rem !important;
+    @include mid-flex;
+    &::after {
+        content: '\f078';
+        font-family: "Font Awesome 6 Pro";
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        color: $color-pri;
+        font-size: 12px;
+        font-weight: 400;
+        transition: 0.4s;
+        @include mid-flex;
+    }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    // border-color: $color-white transparent transparent transparent;
+    display: none;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow  {
+    // border-color: transparent transparent $color-white transparent;
+    &::after {
+        transform: rotate(180deg);
+    }
+}
+
+.select2-search.select2-search--dropdown {
+    display: none !important;
+}
+
+.select2-results__option {
+    font-size: 1.6rem;
+    padding: 0.5rem 1.2rem;
+}
+
+.select2-results {
+    display: block;
+    background-color: $color-white;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.select2-container .select2-dropdown .select2-results ul {
+    background: $color-white;
+    color: $color-text;
+    width: calc(100% + 0.1rem);
+    // border: 0.1rem solid rgba(255, 255, 255, 0.25);
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    div {
+        @include flex;
+        align-items: center;
+    }
+}
+
+.select2-results__option {
+    background-color: $color-white;
+    padding: 1rem;
+}
+
+.select2-dropdown {
+    z-index: 100;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.select2-result__image {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 0.8rem;
+}
+
+.select2-results__option.select2-results__message {
+    display: none;
+}
+
+// =======================

@@ -1,0 +1,280 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    z-index: 50;
+    transition: 0.3s;
+    height: var(--height);
+    background-color: transparent;
+    box-shadow: $shadow;
+
+    @include max($res-mobile) {
+        background: $color-white;
+        .header-logo {
+            .custom-logo-link {
+                width: 8rem;
+            }
+
+        }
+    }
+
+    &.sticky {
+        @include min($res-mobile-min) {
+            height: 6rem;
+            // margin-top: 1.7rem;
+
+            .header-logo {
+                .custom-logo-link {
+                    width: 8rem;
+                }
+            }
+
+            .header-search {
+                height: 6rem;
+                width: 6rem;
+            }
+        }
+
+        @include max($res-mobile) {
+            .header-logo {
+                .custom-logo-link {
+                    width: 8rem;
+                }
+            }
+        }
+    }
+
+    &-wr {
+        @include flex;
+        align-items: center;
+        height: 100%;
+
+    }
+
+    &-action {
+        @include flex;
+        align-items: center;
+    }
+
+    &-nav {
+        @include flex;
+        align-items: center;
+        height: 100%;
+        margin-left: auto;
+        width: 100%;
+
+        .menu-nav {
+            width: 100%;
+
+            .menu-list {
+                justify-content: space-between;
+            }
+        }
+
+        @include max($res-mobile) {
+            display: none;
+        }
+    }
+
+    &-logo {
+        flex-shrink: 0;
+        margin-right: 2rem;
+        background-color: blue;
+        width: 15.5rem;
+        height: 12rem;
+        background-color: #EAF5EE;
+        position: relative;
+        @include max(1200px) {
+            width: 9rem;
+            height: 8rem;
+        }
+        &::after {
+            content: '';
+            background-image: url("../assets/images/logo-fo.png");
+            @include default-background;
+            background-size: 100% 100%;
+            width: 100%;
+            height: 2.3rem;
+            position: absolute;
+            top: calc(100% - 0.1rem);
+            left: 0;
+        }
+
+        @include mid-flex;
+
+        .custom-logo-link {
+            display: block;
+            transition: 0.4s ease-in-out;
+            @include mid-flex;
+            justify-content: flex-start;
+            transition: 0.4s;
+            position: relative;
+            z-index: 2;
+            width: 13rem;
+            flex-shrink: 0;
+            width: 8rem;
+            height: 7.5rem;
+            @include max(1200px) {
+                width: 6rem;
+                height: 5.5rem;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+        }
+
+        &-text {
+            white-space: nowrap;
+            @include fz-18;
+            margin-left: 1rem;
+
+            @include max(850px) {
+                display: none;
+            }
+        }
+    }
+
+    &-lg {
+        position: relative;
+        margin-left: 1rem;
+
+        @include max(850px) {
+            margin-left: auto;
+        }
+
+        &-item {
+            &.active {
+                .header-lg-head {
+                    .header-lg-it {
+                        background-color: $color-pri;
+                        border-color: $color-pri;
+                    }
+                }
+            }
+        }
+
+        &-head {
+            .header-lg-it {
+                border: 0.1rem solid transparent;
+                background-color: #0D7D36;
+                border-radius: 100rem;
+            }
+
+            .arr {
+                @include max(600px) {
+                    display: none;
+                }
+            }
+        }
+
+        &-body {
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            background-color: $color-pri;
+            border-radius: 0.5rem;
+            display: none;
+           
+        }
+
+        &-it {
+            @include flex;
+            align-items: center;
+            cursor: pointer;
+            justify-content: space-between;
+            min-width: 7rem;
+            padding: 0.5rem 1rem;
+            @include max(600px) {
+                min-width: unset;
+                padding: 0.5rem;
+            }
+
+            .icon {
+                width: 2.2rem;
+                height: 2.2rem;
+                flex-shrink: 0;
+                margin-right: 0.3rem;
+
+                @include max(600px) {
+                    margin-right: 0;
+                }
+
+                img {
+                    width: inherit;
+                    height: inherit;
+                }
+            }
+
+            .text {
+                font-weight: 700;
+                @include fz-14;
+                color: $color-white;
+                transition: 0.4s;
+
+                @include max(600px) {
+                    display: none;
+                }
+            }
+
+            @include hover {
+                .text {
+                    // color: $color-pri;
+                }
+            }
+        }
+    }
+
+    &-info {
+        margin: auto;
+        padding-right: 2rem;
+
+        @include min($res-mobile-min) {
+            display: none;
+        }
+
+        @include max(450px) {
+            display: none
+        }
+
+        @include flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap:0.5rem 2rem;
+
+        &-it {
+            @include flex;
+            align-items: center;
+
+            .icon {
+                width: 1.6rem;
+                height: 1.6rem;
+                margin-right: 0.8rem;
+
+                img {
+                    width: inherit;
+                    height: inherit;
+                    filter: brightness(0) saturate(100%) invert(49%) sepia(33%) saturate(6565%) hue-rotate(159deg) brightness(90%) contrast(101%);
+                }
+            }
+
+            .text {
+                color: $color-pri;
+            }
+        }
+    }
+
+    .burger {
+        width: 4rem;
+        height: 4rem;
+
+        @include min($res-mobile-min) {
+            display: none;
+        }
+    }
+}

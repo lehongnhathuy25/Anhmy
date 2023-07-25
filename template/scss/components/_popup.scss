@@ -1,0 +1,282 @@
+.popup {
+    position: fixed;
+    @include full;
+    z-index: 80;
+    visibility: hidden;
+
+    &.open {
+        visibility: visible;
+
+        .popup-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-main {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &-overlay {
+        position: absolute;
+        background-color: rgba($color: $color-black, $alpha: 0.8);
+        @include full;
+        z-index: 1;
+        @include transitionRe;
+        opacity: 0;
+        visibility: hidden;
+        // backdrop-filter: blur(0.3rem)
+    }
+
+    &-main {
+        @include mid;
+        z-index: 2;
+        width: 90rem;
+        max-height: 90vh;
+        max-width: 95%;
+        @include transitionRe;
+        opacity: 0;
+        visibility: hidden;
+        position: relative;
+        // background-color: $color-white;
+        border-radius: 1.6rem;
+        // padding: 1rem 0;
+        background-color: $color-white;
+
+        &.med {
+            width: 90rem;
+        }
+
+        &.small {
+            width: 80rem;
+        }
+    }
+
+    &-over {
+        overflow-y: auto;
+        min-height: 40vh;
+        max-height: 80vh;
+    }
+
+    &-wrapper {
+        width: 100%;
+        min-height: 40vh;
+        position: relative;
+        border-radius: 6px;
+        @include mid-flex;
+    }
+
+    &-title {
+        @include fz-24;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 1.6rem;
+    }
+
+    &-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        transition: 0.6s ease-in-out;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100rem;
+        @include mid-flex;
+        background-color: $color-pri;
+        z-index: 100;
+
+        &:hover {
+            .icon {
+                transform: rotate(360deg);
+            }
+        }
+
+        .icon {
+            color: $color-white;
+            font-weight: 300;
+            font-size: 2.4rem;
+            @include transition(0.6s, ease-in-out);
+
+            @include max(800px) {
+                @include fz-16;
+            }
+        }
+    }
+
+    &-search {
+        width: 100%;
+        padding: 2rem 4rem 4rem 4rem;
+        &-box {
+            width: 40rem;
+        }
+        &-input {
+            &::before {
+                content: '';
+                background-image: url("../assets/images/search.png");
+                @include default-background;
+                width: 20rem;
+                height: 20rem;
+                display: block;
+                margin: auto;
+                margin-bottom: 1rem;
+            }
+            input {
+                width: 100%;
+                transition: 0.4s;
+                padding: 1rem 1.6rem;
+                border-radius: 100rem;
+                border: 0.1rem solid $color-pri;
+            }
+            .btn {
+                width: 100%;
+                border-radius: 100rem;
+                margin-top: 1rem;
+                height: 4.4rem;
+                justify-content: center;
+            }
+        }
+    }
+    &-recruit {
+        width: 100%;
+        padding:3rem 5rem;
+        &-box {
+            padding: 2rem 0;
+        }
+        @include max(500px) {
+            padding: 2rem
+        }
+        .tt {
+            @include fz-24;
+            font-weight: 700;
+        }
+        .desc {
+            margin-bottom: 2rem;
+        }
+        .form-list {
+            input, textarea {
+                background: rgba(0, 151, 178, 0.05);
+                border-radius: 0.8rem;
+                border-color: $color-pri;
+                @include fz-14;
+                @include input-placeholder {
+                    color: $color-text;
+                    opacity: 0.5;
+                }
+            }
+            .select2-container--default .select2-selection--single {
+                background: rgba(0, 151, 178, 0.05);
+                border-color: $color-pri;
+            }
+            .select2-container .select2-selection--single .select2-selection__rendered {
+                color: $color-text;
+            }
+        }
+        .filezone {
+            padding: 3rem;
+            min-height: 16rem;
+            border-radius: 0.8rem;
+            border: 0.1rem dashed $color-pri;
+            background: rgba(0, 151, 178, 0.05);
+            cursor: pointer;
+            @include mid-flex;
+            .text {
+                @include flex;
+                align-items: center;
+                .icon {
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    margin-right: 1rem;
+                    img {
+                        width: inherit;
+                        height: inherit;
+                    }
+                }
+                &-txt {
+                    opacity: 0.5;
+                }
+            }
+        }
+        .btn {
+            margin-top: 3.2rem;
+            @include max(500px) {
+                margin: auto;
+                margin-top: 3.2rem;
+            }
+        }
+    }
+    &-member {
+        padding: 4rem;
+        width: 100%;
+        @include max(800px) {
+            padding: 2rem;
+        }
+        &-box {
+            padding: 2rem 0;
+        }
+        &-flex {
+            @include max(550px) {
+                flex-direction: column;
+            }
+        }
+        &-img {
+            @include max(550px) {
+                width: 100%;
+            }
+            .img {
+                height: 100%;
+                &-inner {
+                    @include imgPd(250,300);
+                    @include max(550px) {
+                        padding-top: calc(200/300*100%);
+                    }
+                    height: 100%;
+                    border-radius: 1.2rem;
+                    img {
+                        @include imgCover;
+                        object-position: top;
+                    }
+                }
+            }
+        }
+        &-info {
+            @include max(550px) {
+                width: 100%;
+            }
+            .inner {
+                .role {
+                    font-weight: 600;
+                    opacity: 0.5;
+                    margin-bottom: 0.5rem;
+                    @include max(900px) {
+                        font-size: 1.4rem;
+                    }
+                }
+                .name {
+                    @include fz-24;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                }
+                .desc {
+                    overflow-y: auto;
+                    max-height: 27rem;
+                    padding-right: 1rem;
+                    &::-webkit-scrollbar {
+                        width: 0;
+                    }
+                    @include hover {
+                        &::-webkit-scrollbar {
+                            width: 0.2rem;
+                        }
+                    }
+                    @include max(550px) {
+                        max-height: unset;
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

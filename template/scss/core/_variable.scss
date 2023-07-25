@@ -1,0 +1,117 @@
+$color-pri: #1F448A ;
+$color-pri-dark: #8C9000;
+$color-second: #DD453C;
+$color-third: #2A9752;
+$color-four: #EAF5EE;
+$color-five: #78EF65;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-text: #303A3C;
+$color-sub-text: #666666;
+$color-border: rgba(0, 0, 0, 0.1);
+$color-sec: #F3F4DB;
+$color-ip:rgba(223, 243, 246, 0.80);
+//Boxshadow
+$shadow: 4px 8px 12px rgba(0, 0, 0, 0.05);
+$linear:linear-gradient(180deg, #0097B2 0%, rgba(0, 151, 178, 0.75) 100%);
+
+// Height
+:root {
+  --height: 10rem;
+
+  @media (max-width:1200px) {
+    --height: 6rem;
+  }
+
+  @media (max-width:600px) {
+    --height: 6rem;
+  }
+
+  --rewidth: calc((100vw - 120rem)/2);
+
+  @media (max-width:1230px) {
+    --rewidth: 1.5rem;
+  }
+
+
+  --recont: calc(100vw - (100vw - 120rem)/2);
+
+  @media (max-width:1240px) {
+    --recont: calc(100%);
+  }
+
+  --logo:25.6rem;
+  --logo-h:13.6rem;
+  @media (max-width:1390px) {
+    --logo: 24rem;
+    --logo-h: 8rem;
+  }
+  @media (max-width:1360px) {
+    --logo: 15rem;
+    --logo-h: 8rem;
+  }
+  --clip: polygon(100% 0, 100% 1%, 50% 100%, 0 1%, 0 0);
+
+  --hex:polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+
+  --hexs:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+
+
+$cubic: cubic-bezier(0.61, 0.22, 0.23, 1);
+//Responsive
+$res-mobile: 1200px;
+$res-mobile-min: 1201px;
+$mobile: 500px;
+//Distance
+$distance-header: 136px;
+$distance-header-mobile: 72px;
+$distance-header-sticky: 60px;
+$distance-header-mobile-sticky: 56px;
+$border-line: 1px solid rgba(0, 0, 0, 0.1);
+$radius: 6px;
+//Clip path
+$clipleft: polygon(100% 0, 0 0, 100% 100%);
+$clipright: polygon(0 0, 0 100%, 100% 100%);
+//Grid 
+$grid-gutter-width: 2.4rem;
+$grid-columns: 12;
+$gutters: (
+  1: 2.4rem,
+);
+
+$xxs-min: 376px;
+$xs-min: 576px; // CÓ THỂ TÙY CHỈNH
+$sm-min: 768px; // KHÔNG THAY ĐỔI
+$md-min: 992px; // KHÔNG THAY ĐỔI
+$lg-min: 1200px; // KHÔNG THAY ĐỔI
+$xl-min: 1400px; // CÓ THỂ TÙY CHỈNH
+
+$xxs-max: (
+  $xxs-min - 0.02
+); // Smallest Mobile
+$xs-max: (
+  $xs-min - 0.02
+); // Small Mobile
+$sm-max: (
+  $sm-min - 0.02
+); // Mobile
+$md-max: (
+  $md-min - 0.02
+); // Tablet
+$lg-max: (
+  $lg-min - 0.02
+); // Desktop
+$xl-max: (
+  $xl-min - 0.02
+); // Large Desktop
+
+$grid-breakpoints: (
+  "xxs": $xxs-min,
+  "xs": $xs-min,
+  "sm": $sm-min,
+  "md": $md-min,
+  "lg": $lg-min,
+  "xl": $xl-min,
+);

@@ -1,0 +1,154 @@
+
+
+.bn {
+    &-r {
+        height: calc(100vw*(600/1728));
+        min-height: 40rem;
+        position: relative;
+        --width:48.4rem;
+        --dcw:calc(100vw*(473/1728));
+        @include max(1200px) {
+            --width:35rem;
+        }
+        &-flex {
+            @include flex;
+            height: 100%;
+        }
+        &-img {
+            width: calc(100% - var(--width));
+            overflow: hidden;
+            @include max(800px) {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            .inner {
+                height: 100%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    animation: zoomIns 4s linear;
+                }
+            }
+        }
+        &-content {
+            width: var(--width);
+            padding: 4rem;
+            background-color: #E4F6F8;
+            position: relative;
+            @include max(800px) {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(228, 246, 248, 0.6);
+            }
+            .dec {
+                position: absolute;
+                width: 60%;
+                right: 10%;
+                top: 14%;
+                pointer-events: none;
+                animation: float 4s linear infinite;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .inner {
+                @include flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+                @include max(800px) {
+                    width: 100%;
+                    align-items: center
+                }
+                .titles {
+                    
+                    &-sub {
+                        .txt {
+                            @include fz-20;
+                            @include max(800px) {
+                                &::after {
+                                    display: block;
+                                }
+                                &::before {
+                                    width: 0%;
+                                }
+                            }
+                        }
+                    }
+                    &-tt {
+                        font-weight: 700;
+                        @include fz-40;
+                    }
+                    @include max(800px) {
+                        align-items: center;
+                        @include flex;
+                        flex-direction: column;
+                        .titles-sub {
+                            transform: scale(0);
+                        }
+                        .titles-tt {
+                            text-align: center;
+                        }
+                        &.is-inview {
+                            .titles-sub {
+                                transform: scale(1);
+                                .txt {
+                                    &::before {
+                                        width: 3rem;
+                                    }
+                                    &::after {
+                                        width: 3rem;
+                                        background-color: $color-text;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                width:var(--dcw);
+                height: 100%;
+                background-image: url("../assets/images/banner-r.png");
+                @include default-background;
+                background-size: 100% 100%;
+                bottom: 0;
+                right: calc(100% - 0.1rem);
+                @include max(900px) {
+                    display: none;
+                }
+            }
+        }
+        &.revert {
+            --width:calc(580/1728*100vw);
+            .bn-r-flex {
+                flex-direction: row-reverse;
+            }
+            .bn-r-content {
+                padding-left: var(--rewidth);
+                &::after {
+                    right: unset;
+                    left: calc(100% - 0.2rem);
+                    background-image: url("../assets/images/banner-l.png");
+                }
+                @include max(800px) {
+                    padding: 4rem 1.5rem;
+                }
+            }
+        }
+    }
+    &-breadcrumb {
+        background-color: $color-pri;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+}
